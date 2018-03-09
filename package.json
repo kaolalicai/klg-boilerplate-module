@@ -1,0 +1,25 @@
+{
+  "name": "klg-boilerplate-module",
+  "version": "1.0.0",
+  "description": "klg module template",
+  "main": "index.js",
+  "scripts": {
+    "autod": "autod",
+    "lint": "",
+    "test": "npm run lint -- --fix && npm run test-boilerplate",
+    "ci": "npm run lint && npm run ci-boilerplate",
+    "test-boilerplate": "npm run build && npm run install-deps && cd dist && npm test",
+    "ci-boilerplate": "npm run build && npm run install-deps && cd dist && npm run ci",
+    "clean": "rm -rf boilerplate/.idea boilerplate/logs boilerplate/node_modules boilerplate/run",
+    "build": "npm run clean && klg-init dist --force --silent --template=./",
+    "install-deps": "cd dist && npm i autod-egg && ../node_modules/.bin/autod && npm i"
+  },
+  "author": "nick",
+  "license": "ISC",
+  "devDependencies": {
+    "autod": "^3.0.1",
+    "klg-init": "1.0.0",
+    "eslint": "^4.18.2",
+    "webstorm-disable-index": "^1.2.0"
+  }
+}
