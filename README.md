@@ -1,6 +1,10 @@
 # klg-boilerplate-module
 
+copy form egg-init
+
 Boilerplate for klg module quickstart. 
+
+klg npm 库模板
 
 ## Installation
 
