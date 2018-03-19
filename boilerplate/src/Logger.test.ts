@@ -1,15 +1,16 @@
-import * as should from 'should';
-import { Logger } from '../src/Logger'
+import * as assert from 'power-assert'
+import {Logger} from './Logger'
 
 describe('logger ts test', async function () {
 
   it(' test ts log', async () => {
     const logger = new Logger({
       level: 'log',
+      stackIndex: 1,
       transport: function (data) {
-        console.log('data', data);
-        should.exist(data)
-        should.equal(data.level, 0)
+        // console.log('data', data);
+        assert(data)
+        assert(data.level === 0)
       }
     })
     logger.log('hello world')
@@ -28,8 +29,10 @@ describe('logger ts test', async function () {
   it(' test warn', async () => {
     const logger = new Logger({
       transport: function (data) {
-        console.log('data', data);
-        should.equal(data.level, 4)
+        assert(data.level === 4)
+        assert(data.title === 'warn')
+        assert(data.message === 'hello world')
+        assert(data.path.includes('Logger.test.ts'))
       }
     })
     logger.warn('hello world')
@@ -40,4 +43,3 @@ describe('logger ts test', async function () {
     logger.error('hello world')
   })
 })
-

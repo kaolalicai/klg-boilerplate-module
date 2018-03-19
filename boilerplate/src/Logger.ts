@@ -3,6 +3,7 @@ import * as tracer from 'tracer'
 export interface LogConfig {
   level?: string
   dateformat?: string
+  stackIndex?: number
   inspectOpt?: {
     showHidden?: boolean
     depth?: number
@@ -16,7 +17,10 @@ export class Logger {
 
   constructor (config?: LogConfig) {
     if (config) {
+      if (!config.stackIndex) config.stackIndex = 1
       this.config = config
+    } else {
+      this.config = {stackIndex: 1}
     }
     this.logger = tracer.console(this.config)
   }
