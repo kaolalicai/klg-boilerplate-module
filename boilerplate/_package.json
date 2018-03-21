@@ -12,6 +12,30 @@
     "prepublish": "npm run build",
     "pretest": "npm run lint"
   },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "modulePaths": [
+      "<rootDir>/"
+    ],
+    "testRegex": "/src/.*\\.(test|spec).(ts|tsx|js)$",
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,tsx,ts}",
+      "!**/node_modules/**",
+      "!**/vendor/**"
+    ],
+    "coverageReporters": [
+      "json",
+      "lcov"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/kaolalicai/{{name}}"
@@ -28,6 +52,7 @@
     "tracer": "^0.8.12"
   },
   "devDependencies": {
+    "@types/jest": "^22.2.0",
     "@types/power-assert": "^1.4.29",
     "webstorm-disable-index": "^1.2.0",
     "jest": "^22.4.2",
