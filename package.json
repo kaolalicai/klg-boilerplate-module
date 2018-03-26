@@ -1,6 +1,6 @@
 {
   "name": "klg-boilerplate-module",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "klg module template",
   "main": "index.js",
   "scripts": {
