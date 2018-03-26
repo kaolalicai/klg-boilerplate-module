@@ -4,8 +4,7 @@
     "target": "es2017",
     "experimentalDecorators": true,
     "sourceMap": true,
-    "outDir": "dist",
-    "baseUrl": "."
+    "outDir": "dist"
   },
   "include": [
     "src/**/*"
