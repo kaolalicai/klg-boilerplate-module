@@ -1,4 +1,3 @@
-import * as assert from 'power-assert'
 import {Logger} from './Logger'
 
 describe('logger ts test', async function () {
@@ -9,8 +8,8 @@ describe('logger ts test', async function () {
       stackIndex: 1,
       transport: function (data) {
         // console.log('data', data);
-        assert(data)
-        assert(data.level === 0)
+        expect(data)
+        expect(data.level).toEqual(0)
       }
     })
     logger.log('hello world')
@@ -29,10 +28,10 @@ describe('logger ts test', async function () {
   it(' test warn', async () => {
     const logger = new Logger({
       transport: function (data) {
-        assert(data.level === 4)
-        assert(data.title === 'warn')
-        assert(data.message === 'hello world')
-        assert(data.path.includes('Logger.test.ts'))
+        expect(data.level).toEqual(4)
+        expect(data.title).toEqual('warn')
+        expect(data.message).toEqual('hello world')
+        expect(data.path.includes('Logger.test.ts'))
       }
     })
     logger.warn('hello world')
